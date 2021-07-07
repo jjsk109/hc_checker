@@ -73,13 +73,27 @@ function setFirebase(){
    
 }
 function removeFirebase(){
-    var _number = document.getElementById("inputNum").value;
-    if(_number === ''){
-        return;
+    var changeButton = document.getElementById("changeButton");
+    if("수정" === changeButton.innerHTML){
+        changeButton.innerHTML = "완료";
+        showHendle("inline-block");
+    }else {
+        changeButton.innerHTML = "수정";
+        showHendle("none");
     }
-    var number =  Number(_number);
-    firebase.database().ref("/id/"+number+"/").remove();
-    location.reload();
-    
+
+}
+
+function showHendle(text){
+    var liList = [] ;
+    liList[0] = document.getElementsByClassName('setName');
+    liList[1] = document.getElementsByClassName('change');
+    liList[2] = document.getElementsByClassName('delete');
+    console.log(liList[0]);
+    for(var i = 0; i < liList[0].length; i ++){
+        liList[0][i].style.display = text;
+        liList[1][i].style.display = text;
+        liList[2][i].style.display = text;
+    }
 }
 

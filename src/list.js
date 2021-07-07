@@ -30,32 +30,48 @@ class List{
         });
     }
     setContent(t,id,name,check,other){
-       
+        // t = this, id key,name 이름,check 출석여부, other 비고
         t._ul = document.createElement('ul');
         t._li = document.createElement('li');
 
         t.under_ul = document.createElement('ul');
+
+        // li 테그 추가 0 번호, 1 이름, 2 체크박스, 3 비고,  4 수정버튼, 5 삭제버튼,
         t.under_li = [];
         t.under_li[0] = document.createElement('li');
         t.under_li[1] = document.createElement('li');
         t.under_li[2] = document.createElement('li');
         t.under_li[3] = document.createElement('li');
+        t.under_li[4] = document.createElement('li');
+        t.under_li[5] = document.createElement('li');
+        t.under_li[6] = document.createElement('li');
 
         var text = [];
         text[0] = document.createTextNode(id);
         text[1] = document.createTextNode(name);
+        text[2] = document.createElement('input');
+        text[2].type = 'text'
+        text[2].value = name;
+        t.under_li[2].className = "setName";
         if(check===''){
-            text[2] = document.createElement('input');
-            text[2].type='checkbox';
-            text[2].className='abcd'
-            text[2].id='a'+id;
+            text[3] = document.createElement('input');
+            text[3].type='checkbox';
+            text[3].className='abcd'
+            text[3].id='a'+id;
         }else{
-            text[2] = document.createTextNode(check);
+            text[3] = document.createTextNode(check);
         }
         
-        text[3] = document.createTextNode(other);
+        
+        text[4] = document.createTextNode(other);
+        text[5] = document.createElement("BUTTON");
+        text[6] = document.createElement("BUTTON");
 
 
+        text[5].innerHTML="수정";
+        t.under_li[5].className="change";
+        text[6].innerHTML="삭제";
+        t.under_li[6].className="delete";
         for(var i=0; i<text.length; i++){
             t.under_li[i].appendChild(text[i]);
             t.under_ul.appendChild( t.under_li[i]);

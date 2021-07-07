@@ -64,3 +64,12 @@ li{list-style: none;}
     position: fixed;
     left: -100px;
 }
+#attendance .setName{
+    display: none;
+}
+#attendance .change{
+    display: none;
+}
+#attendance .delete{
+    display: none;
+}
