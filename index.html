@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헤븐리교회 출석부</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./img/logo/HClogo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div id="pic">
+            <img id="logo" src="./img/logo/HClogo.png" alt="헤븐리교회 로고 언덕위의 십자가">
+        </div>
+        <div>
+            <h2 id="title">헤븐리교회 출석부</h2>
+        </div>
+    </header>
+    <section id="attendance">
+    </section>
+    <section id="countdown">
+        <ul>
+            <li>총인원 : </li>
+            <li id="_all_count">0</li>
+            <li ><button onclick="downloadSCV();">저장</button></li>
+        </ul>
+    </section >
+    <section id="addSubmit">
+        <ul>
+            <li id="MaxCount" ></li>
+            <li>이름 : <input type="text" name="name" id="inputName"></li>
+            <li>비고 : <input type="text" name="other" id="inputOther"></li>
+            <li id="selectNumber">수정번호 : <input type="text" name="number" id="inputNum"></li>
+            <li>
+                <button onclick="setFirebase()">등록</button>
+                <button onclick="removeFirebase()">삭제</button>
+            </li>
+            
+        </ul>
+    </section>
+    
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script type="module" src="./src/app.js"></script>
+    <script src="./src/click.js"></script>
+</body>
+</html>
