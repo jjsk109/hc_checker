@@ -24,6 +24,7 @@
             <li>총인원 : </li>
             <li id="_all_count">0</li>
             <li ><button onclick="downloadSCV();">저장</button></li>
+            <li ><button onclick="resetCheck();">초기화</button></li>
         </ul>
     </section >
     <section id="addSubmit">
@@ -31,7 +32,7 @@
             <li id="MaxCount" ></li>
             <li>이름 : <input type="text" name="name" id="inputName"></li>
             <li>비고 : <input type="text" name="other" id="inputOther"></li>
-            <li id="selectNumber">수정번호 : <input type="text" name="number" id="inputNum"></li>
+            <!-- <li id="selectNumber">수정번호 : <input type="text" name="number" id="inputNum"></li> -->
             <li>
                 <button onclick="setFirebase()">등록</button>
                 <button id="changeButton" onclick="removeFirebase()">수정</button>

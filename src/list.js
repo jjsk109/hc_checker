@@ -21,15 +21,23 @@ class List{
         const ref = firebase.database().ref("/id/");
         
         ref.once("value",snapshot =>{
+            var j = 0;
             for(var i = 0; i <snapshot.val().length; i++ ){
-                var name = snapshot.val()[i].name;
-                var check = snapshot.val()[i].check;
-                var other = snapshot.val()[i].other;
-                this.setContent(t,i,name,check,other);
+                
+                //console.log(snapshot.val()[i]);
+                if(snapshot.val()[i] !=null){
+                    var name = snapshot.val()[i].name;
+                    var _id = snapshot.val()[i].id;
+                    var check = snapshot.val()[i].check;
+                    var other = snapshot.val()[i].other;
+                    this.setContent(t,_id,name,check,other,j);
+                    j++;
+                }
+                
             }
         });
     }
-    setContent(t,id,name,check,other){
+    setContent(t,id,name,check,other,num){
         // t = this, id key,name 이름,check 출석여부, other 비고
         t._ul = document.createElement('ul');
         t._li = document.createElement('li');
@@ -47,7 +55,7 @@ class List{
         t.under_li[6] = document.createElement('li');
 
         var text = [];
-        text[0] = document.createTextNode(id);
+        text[0] = document.createTextNode(num);
         text[1] = document.createTextNode(name);
         text[2] = document.createElement('input');
         text[2].type = 'text'
@@ -69,8 +77,13 @@ class List{
 
 
         text[5].innerHTML="수정";
+        text[5].className="chage_button";
+        text[5].id=id;
         t.under_li[5].className="change";
         text[6].innerHTML="삭제";
+        
+        text[6].id = id;
+        text[6].className = "del_button";
         t.under_li[6].className="delete";
         for(var i=0; i<text.length; i++){
             t.under_li[i].appendChild(text[i]);
