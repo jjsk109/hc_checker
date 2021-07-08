@@ -113,4 +113,5 @@ function showHendle(text){
 
 function resetCheck(){
     firebase.database().ref("/check/").remove();
+    location.reload();
 }
